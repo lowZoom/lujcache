@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/example.iml" filepath="$PROJECT_DIR$/.idea/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/lujcache.iml" filepath="$PROJECT_DIR$/.idea/lujcache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lujparent.iml" filepath="$PROJECT_DIR$/.idea/lujparent.iml" />
     </modules>
   </component>
 </project>
