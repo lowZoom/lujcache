@@ -15,5 +15,10 @@
   <version>1.0.0-SNAPSHOT</version>
 
   <dependencies>
+    <dependency>
+      <groupId>luj.cache</groupId>
+      <artifactId>lujcache</artifactId>
+      <version>0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>
