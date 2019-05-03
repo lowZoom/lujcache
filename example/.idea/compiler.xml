@@ -7,15 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="example" />
-        <module name="lujava" />
+        <module name="luj.lujava" />
         <module name="lujcache" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="example" target="1.8" />
-      <module name="lujava" target="1.8" />
+      <module name="luj.lujava" target="1.8" />
+      <module name="luj.lujparent" target="1.8" />
       <module name="lujcache" target="1.8" />
-      <module name="lujparent" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
