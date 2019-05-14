@@ -11,6 +11,8 @@ public interface RequestWalkListener {
     <T> T getDataId();
 
     BiConsumer<Object, Object> getFieldSetter();
+
+    <T> T getRequestParam();
   }
 
   void onWalk(Context ctx);

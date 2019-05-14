@@ -4,8 +4,7 @@ import java.util.function.BiConsumer;
 
 public class RequestNode {
 
-  public RequestNode(Class<?> dataType, Object dataId,
-      BiConsumer<Object, Object> fieldSetter) {
+  public RequestNode(Class<?> dataType, Object dataId, BiConsumer<Object, Object> fieldSetter) {
     _dataType = dataType;
     _dataId = dataId;
     _fieldSetter = fieldSetter;
@@ -24,7 +23,6 @@ public class RequestNode {
   }
 
   private final Class<?> _dataType;
-
   private final Object _dataId;
 
   private final BiConsumer<Object, Object> _fieldSetter;

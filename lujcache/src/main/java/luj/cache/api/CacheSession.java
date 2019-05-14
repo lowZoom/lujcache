@@ -6,5 +6,5 @@ public interface CacheSession {
 
 //  <T> CacheContainer<T> createCache(Object cacheParam);
 
-  CacheRequest createRequest();
+  CacheRequest createRequest(Object reqParam);
 }
