@@ -1,10 +1,11 @@
 package luj.cache.api;
 
+import luj.cache.api.container.CacheContainer;
 import luj.cache.api.request.CacheRequest;
 
 public interface CacheSession {
 
-//  <T> CacheContainer<T> createCache(Object cacheParam);
+  CacheContainer createCache(Object cacheParam);
 
   CacheRequest createRequest(Object reqParam);
 }
