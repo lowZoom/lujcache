@@ -5,6 +5,7 @@ import luj.cache.api.request.RequestWalkListener;
 import luj.cache.internal.request.state.RequestNode;
 import luj.cache.internal.request.state.RequestState;
 
+@Deprecated
 public class RequestWalker {
 
   public RequestWalker(RequestState state, RequestWalkListener walkListener) {

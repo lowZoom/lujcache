@@ -9,7 +9,7 @@ public interface CacheRequest {
 
     <T1, T2> Node addChild(Class<T2> dataType, Object dataId, BiConsumer<T1, T2> resultFieldSetter);
 
-    void addChild(Function<?, ?> idGetter, BiConsumer<?, ?> resultFieldSetter);
+    void addChild(Function<?, ?> idGetter, Class<?> dataType, BiConsumer<?, ?> resultFieldSetter);
   }
 
   @Deprecated

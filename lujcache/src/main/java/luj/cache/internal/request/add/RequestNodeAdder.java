@@ -4,6 +4,7 @@ import java.util.function.BiConsumer;
 import luj.cache.internal.request.state.RequestNode;
 import luj.cache.internal.request.state.RequestState;
 
+@Deprecated
 public class RequestNodeAdder {
 
   public RequestNodeAdder(RequestState state, Class<?> dataType, Object dataId,

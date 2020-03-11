@@ -2,6 +2,7 @@ package luj.cache.internal.request.state;
 
 import java.util.function.BiConsumer;
 
+@Deprecated
 public class RequestNode {
 
   public RequestNode(Class<?> dataType, Object dataId, BiConsumer<Object, Object> fieldSetter) {

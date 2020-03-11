@@ -26,10 +26,7 @@ final class CacheSessionImpl implements CacheSession {
     RequestState state = new RequestState(new ArrayList<>(), reqParam);
     NodeImpl root = new NodeImpl(null, null, null, null, new ArrayList<>());
 
-    CacheRequestImpl req = new CacheRequestImpl(state, root, _requestWalkListener);
-    root._req = req;
-
-    return req;
+    return new CacheRequestImpl(state, root, _requestWalkListener);
   }
 
   private final RequestWalkListener _requestWalkListener;
