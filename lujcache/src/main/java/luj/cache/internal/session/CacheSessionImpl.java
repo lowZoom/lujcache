@@ -7,6 +7,7 @@ import luj.cache.api.request.CacheRequest;
 import luj.cache.api.request.RequestWalkListener;
 import luj.cache.internal.container.CacheContainerImpl;
 import luj.cache.internal.request.CacheRequestImpl;
+import luj.cache.internal.request.node.NodeImpl;
 import luj.cache.internal.request.state.RequestState;
 
 final class CacheSessionImpl implements CacheSession {
@@ -23,7 +24,9 @@ final class CacheSessionImpl implements CacheSession {
   @Override
   public CacheRequest createRequest(Object reqParam) {
     RequestState state = new RequestState(new ArrayList<>(), reqParam);
-    return new CacheRequestImpl(state, _requestWalkListener);
+    NodeImpl root = new NodeImpl(new ArrayList<>());
+
+    return new CacheRequestImpl(state, root, _requestWalkListener);
   }
 
   private final RequestWalkListener _requestWalkListener;
