@@ -13,16 +13,16 @@ public class RequestWalkerV2 {
 
   public void walk() {
     for (NodeImpl child : _root.getChildList()) {
-      walkImpl(child);
+      walkImpl(child, null);
     }
   }
 
-  private void walkImpl(NodeImpl node) {
-    WalkContextImpl ctx = new WalkContextImpl(node, _requestParam);
-    _walkListener.onWalk(ctx);
+  private void walkImpl(NodeImpl node, Object parentReturn) {
+    WalkContextImpl ctx = new WalkContextImpl(node, _requestParam, parentReturn);
+    Object selfReturn = _walkListener.onWalk(ctx);
 
     for (NodeImpl child : node.getChildList()) {
-      walkImpl(child);
+      walkImpl(child, selfReturn);
     }
   }
 

@@ -1,6 +1,7 @@
 package luj.cache.internal.session;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import luj.cache.api.CacheSession;
 import luj.cache.api.container.CacheContainer;
 import luj.cache.api.request.CacheRequest;
@@ -18,7 +19,7 @@ final class CacheSessionImpl implements CacheSession {
 
   @Override
   public CacheContainer createCache(Object cacheParam) {
-    return new CacheContainerImpl();
+    return new CacheContainerImpl(new HashMap<>());
   }
 
   @Override
