@@ -7,12 +7,17 @@ import org.springframework.stereotype.Component;
 @Component
 final class OnLujcacheWalk implements RequestWalkListener {
 
+  /**
+   * @see ExampleDataManager
+   */
   @Override
-  public void onWalk(Context ctx) {
+  public Object onWalk(Context ctx) {
     Class<?> dataType = ctx.getDataType();
     Long dataId = ctx.getDataId();
 
     Object data = ExampleDataManager.SINGLETON.findData(dataType, dataId);
     ctx.getFieldSetter().accept(null, data);
+
+    return null;
   }
 }

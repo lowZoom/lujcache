@@ -10,8 +10,11 @@ public class PlayerLoginLoad {
     _lujcache = lujcache;
   }
 
+  /**
+   * @see luj.cache.example.core.lujcache.OnLujcacheWalk
+   */
   public void onLoad() {
-    CacheRequest req = _lujcache.createRequest();
+    CacheRequest req = _lujcache.createRequest(null);
 
     PlayerDb[] playerDb = new PlayerDb[1];
     req.addNode(PlayerDb.class, 101L, (r, f) -> playerDb[0] = f);
