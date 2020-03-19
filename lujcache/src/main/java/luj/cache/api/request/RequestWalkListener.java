@@ -14,6 +14,7 @@ public interface RequestWalkListener {
 
     Function<Object, Collection<Comparable<?>>> getDataIdGetter();
 
+    //TODO: 考虑是否不应该存在于框架层
     BiConsumer<Object, Object> getFieldSetter();
 
     <T> T getRequestParam();

@@ -12,10 +12,19 @@ public interface CacheRequest {
     void addChild(Function<?, ?> idGetter, Class<?> dataType, BiConsumer<?, ?> resultFieldSetter);
   }
 
+  /**
+   * @see #getRoot
+   */
   @Deprecated
   <T1, T2> void addNode(Class<T2> dataType, Object dataId, BiConsumer<T1, T2> resultFieldSetter);
 
   Node getRoot();
 
+  /**
+   * @see #walk(RequestWalkListener)
+   */
+  @Deprecated
   void walk();
+
+  void walk(RequestWalkListener listener);
 }

@@ -29,8 +29,13 @@ public class CacheRequestImpl implements CacheRequest {
 
   @Override
   public void walk() {
+    walk(_walkListener);
+  }
+
+  @Override
+  public void walk(RequestWalkListener listener) {
 //    new RequestWalker(_state, _walkListener).walk();
-    new RequestWalkerV2(_root, _state.getRequestParam(), _walkListener).walk();
+    new RequestWalkerV2(_root, _state.getRequestParam(), listener).walk();
   }
 
   private final RequestState _state;
