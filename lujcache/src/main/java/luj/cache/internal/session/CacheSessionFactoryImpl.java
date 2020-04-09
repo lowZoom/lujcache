@@ -1,7 +1,6 @@
 package luj.cache.internal.session;
 
 import luj.cache.api.CacheSession;
-import luj.cache.api.request.RequestWalkListener;
 import org.springframework.context.ApplicationContext;
 
 final class CacheSessionFactoryImpl implements CacheSessionFactory {
@@ -12,8 +11,7 @@ final class CacheSessionFactoryImpl implements CacheSessionFactory {
 
   @Override
   public CacheSession create() {
-    RequestWalkListener listener = _appContext.getBean(RequestWalkListener.class);
-    return new CacheSessionImpl(listener);
+    return new CacheSessionImpl();
   }
 
   private final ApplicationContext _appContext;

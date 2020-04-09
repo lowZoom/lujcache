@@ -20,11 +20,5 @@ public interface CacheRequest {
 
   Node getRoot();
 
-  /**
-   * @see #walk(RequestWalkListener)
-   */
-  @Deprecated
-  void walk();
-
   void walk(RequestWalkListener listener);
 }

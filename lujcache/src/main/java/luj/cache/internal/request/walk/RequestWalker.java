@@ -1,28 +1,33 @@
 package luj.cache.internal.request.walk;
 
 import luj.cache.api.request.RequestWalkListener;
-import luj.cache.internal.request.state.RequestNode;
-import luj.cache.internal.request.state.RequestState;
+import luj.cache.internal.request.node.NodeImpl;
 
-@Deprecated
 public class RequestWalker {
 
-  public RequestWalker(RequestState state, RequestWalkListener walkListener) {
-    _state = state;
+  public RequestWalker(NodeImpl root, Object requestParam, RequestWalkListener walkListener) {
+    _root = root;
+    _requestParam = requestParam;
     _walkListener = walkListener;
   }
 
   public void walk() {
-    for (RequestNode node : _state.getRootList()) {
-      _walkListener.onWalk(createContext(node));
+    for (NodeImpl child : _root.getChildList()) {
+      walkImpl(child, null);
     }
   }
 
-  private RequestWalkListener.Context createContext(RequestNode node) {
-    return null;
+  private void walkImpl(NodeImpl node, Object parentReturn) {
+    WalkContextImpl ctx = new WalkContextImpl(node, _requestParam, parentReturn);
+    Object selfReturn = _walkListener.onWalk(ctx);
+
+    for (NodeImpl child : node.getChildList()) {
+      walkImpl(child, selfReturn);
+    }
   }
 
-  private final RequestState _state;
+  private final NodeImpl _root;
+  private final Object _requestParam;
 
   private final RequestWalkListener _walkListener;
 }
