@@ -9,8 +9,7 @@ import luj.cache.api.request.CacheRequest;
 
 public class NodeImpl implements CacheRequest.Node {
 
-  public NodeImpl(Class<?> dataType, Object dataId,
-      Function<Object, Collection<Comparable<?>>> dataIdGetter,
+  public NodeImpl(Class<?> dataType, Object dataId, Function<Object, Object> dataIdGetter,
       BiConsumer<Object, Object> resultFieldSetter, List<NodeImpl> childList) {
     _dataType = dataType;
     _dataId = dataId;
@@ -27,7 +26,7 @@ public class NodeImpl implements CacheRequest.Node {
     return _dataId;
   }
 
-  public Function<Object, Collection<Comparable<?>>> getDataIdGetter() {
+  public Function<Object, Object> getDataIdGetter() {
     return _dataIdGetter;
   }
 
@@ -51,20 +50,19 @@ public class NodeImpl implements CacheRequest.Node {
 
   @SuppressWarnings("unchecked")
   @Override
-  public void addChild(Function<?, ?> idGetter, Class<?> dataType,
+  public CacheRequest.Node addChild(Function<?, ?> idGetter, Class<?> dataType,
       BiConsumer<?, ?> resultFieldSetter) {
-    NodeImpl node = new NodeImpl(dataType, null,
-        (Function<Object, Collection<Comparable<?>>>) idGetter,
+    NodeImpl node = new NodeImpl(dataType, null, (Function<Object, Object>) idGetter,
         (BiConsumer<Object, Object>) resultFieldSetter, new ArrayList<>());
 
     _childList.add(node);
-//    return child;
+    return node;
   }
 
   private final Class<?> _dataType;
 
   private final Object _dataId;
-  private final Function<Object, Collection<Comparable<?>>> _dataIdGetter;
+  private final Function<Object, Object> _dataIdGetter;
 
   private final BiConsumer<Object, Object> _resultFieldSetter;
 

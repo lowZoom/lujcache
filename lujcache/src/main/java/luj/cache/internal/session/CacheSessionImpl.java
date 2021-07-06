@@ -13,7 +13,7 @@ import luj.cache.internal.request.state.RequestState;
 final class CacheSessionImpl implements CacheSession {
 
   @Override
-  public CacheContainer createCache(Object cacheParam) {
+  public CacheContainer createCache() {
     return new CacheContainerImpl(new HashMap<>());
   }
 

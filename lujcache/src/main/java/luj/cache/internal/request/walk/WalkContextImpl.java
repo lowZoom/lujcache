@@ -26,7 +26,7 @@ final class WalkContextImpl implements RequestWalkListener.Context {
   }
 
   @Override
-  public Function<Object, Collection<Comparable<?>>> getDataIdGetter() {
+  public Function<Object, Object> getDataIdGetter() {
     return _node.getDataIdGetter();
   }
 
