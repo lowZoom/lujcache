@@ -1,6 +1,5 @@
 package luj.cache.internal.request.walk;
 
-import java.util.Collection;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import luj.cache.api.request.RequestWalkListener;
@@ -8,15 +7,15 @@ import luj.cache.internal.request.node.NodeImpl;
 
 final class WalkContextImpl implements RequestWalkListener.Context {
 
-  WalkContextImpl(NodeImpl node, Object requestParam, Object parentReturn) {
-    _node = node;
-    _requestParam = requestParam;
-    _parentReturn = parentReturn;
-  }
-
   @Override
   public Class<?> getDataType() {
     return _node.getDataType();
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public <T> T getNode() {
+    return (T) _node.getNodeOp();
   }
 
   @SuppressWarnings("unchecked")
@@ -47,8 +46,8 @@ final class WalkContextImpl implements RequestWalkListener.Context {
     return (T) _parentReturn;
   }
 
-  private final NodeImpl _node;
+  NodeImpl _node;
 
-  private final Object _requestParam;
-  private final Object _parentReturn;
+  Object _requestParam;
+  Object _parentReturn;
 }

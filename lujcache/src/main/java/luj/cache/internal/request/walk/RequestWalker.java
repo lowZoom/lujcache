@@ -18,7 +18,11 @@ public class RequestWalker {
   }
 
   private void walkImpl(NodeImpl node, Object parentReturn) {
-    WalkContextImpl ctx = new WalkContextImpl(node, _requestParam, parentReturn);
+    WalkContextImpl ctx = new WalkContextImpl();
+    ctx._node = node;
+    ctx._requestParam = _requestParam;
+    ctx._parentReturn = parentReturn;
+
     Object selfReturn = _walkListener.onWalk(ctx);
 
     for (NodeImpl child : node.getChildList()) {

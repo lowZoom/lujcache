@@ -7,16 +7,14 @@ public interface CacheRequest {
 
   interface Node {
 
+    <T1, T2> Node addChild(Class<T2> dataType, BiConsumer<T1, T2> resultFieldSetter, Object op);
+
+    @Deprecated
     <T1, T2> Node addChild(Class<T2> dataType, Object dataId, BiConsumer<T1, T2> resultFieldSetter);
 
-    Node addChild(Function<?, ?> idGetter, Class<?> dataType, BiConsumer<?, ?> resultFieldSetter);
+    @Deprecated
+    <T1, T2> Node addChild(Function<?, ?> idGetter, Class<T2> dataType, BiConsumer<T1, T2> resultFieldSetter);
   }
-
-  /**
-   * @see #getRoot
-   */
-  @Deprecated
-  <T1, T2> void addNode(Class<T2> dataType, Object dataId, BiConsumer<T1, T2> resultFieldSetter);
 
   Node getRoot();
 

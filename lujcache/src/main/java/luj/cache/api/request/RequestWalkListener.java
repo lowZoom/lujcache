@@ -10,8 +10,12 @@ public interface RequestWalkListener {
 
     Class<?> getDataType();
 
+    <T> T getNode();
+
+    @Deprecated
     <T> T getDataId();
 
+    @Deprecated
     Function<Object, Object> getDataIdGetter();
 
     //TODO: 考虑是否不应该存在于框架层
