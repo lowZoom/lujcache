@@ -24,6 +24,10 @@ public class RequestWalker {
     ctx._parentReturn = parentReturn;
 
     Object selfReturn = _walkListener.onWalk(ctx);
+    if (selfReturn == null) {
+      // 该结点对应数据不存在，就打断不用再往下找了
+      return;
+    }
 
     for (NodeImpl child : node.getChildList()) {
       walkImpl(child, selfReturn);
