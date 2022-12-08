@@ -19,8 +19,8 @@ final class CacheSessionImpl implements CacheSession {
 
   @Override
   public CacheRequest createRequest(Object reqParam) {
-    RequestState state = new RequestState(new ArrayList<>(), reqParam);
-    NodeImpl root = new NodeImpl(null, null, null, null, null, new ArrayList<>());
+    var state = new RequestState(new ArrayList<>(), reqParam);
+    var root = new NodeImpl(null, null, null, null, null, new ArrayList<>());
 
     return new CacheRequestImpl(state, root);
   }
